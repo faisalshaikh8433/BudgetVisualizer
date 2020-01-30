@@ -70,14 +70,14 @@ class HomePage extends Component {
 
   render() {
     return (
-    <main className="bg-gray-200 flex w-full h-screen justify-center items-center p-6 lg:p-0">
+    <main className="bg-gray-200 flex w-full h-screen justify-center items-center p-6 lg:p-0 my-20 lg:my-0">
       <div className="container max-w-3xl">
         <header className="px-12 py-8 bg-white my-2">
           <h1 className="font-bold text-3xl leading-tight text-center">What all can be done with this budget?</h1>
         </header>
 
         <section className="bg-green-500 px-12 py-4 text-white flex justify-center my-2">
-          <h3 className="font-bold text-2xl">₹ {this.state.budget.toLocaleString('en-IN')} left</h3>
+          <h3 className="font-bold text-2xl text-center">₹ {this.state.budget.toLocaleString('en-IN')} left</h3>
         </section>
 
         <section className="flex flex-1 flex-col lg:flex-row flex-wrap my-2">
