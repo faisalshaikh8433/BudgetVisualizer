@@ -70,7 +70,7 @@ class HomePage extends Component {
 
   render() {
     return (
-        <main className="flex w-full h-screen justify-center items-center px-6 py-16 lg:p-0">
+        <main className="flex w-full h-screen justify-center items-center px-6 my-20 lg:p-0 lg:my-0">
           <div className="container max-w-3xl">
             <header className="px-12 py-8 bg-white my-2">
               <h1 className="font-bold text-3xl leading-tight text-center">What all can be done with this budget?</h1>
