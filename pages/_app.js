@@ -7,7 +7,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>How much it will cost to do CAA/NRC</title>
+        <title>BudgetVisualizer - What all can be done with this kind of money</title>
       </Head>
       <Component {...pageProps} />
     </>
