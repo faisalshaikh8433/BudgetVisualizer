@@ -17,19 +17,24 @@ class Item extends Component {
     const { qty } = this.state;
     if (qty > 0) {
       const newQty = qty - 1;
+      let totalCost = this.props.cost;
       this.setState({ qty: newQty });
-      const totalCost = this.props.cost * newQty;
+      if (newQty > 0) {
+        totalCost = this.props.cost * newQty;
+      }
       this.props.onUndo(totalCost);
     }
   };
 
   render() {
-    const { name, cost, onBuild, imgSrc } = this.props;
+    const { name, cost, imgSrc } = this.props;
     const { qty } = this.state;
     return (
-      <div className="px-6 py-4 bg-white flex flex-col justify-center items-center rounded m-1">
-        <img src={imgSrc} className="w-16 py-2" />
-        <strong className="text-xl">{name}</strong>
+      <div className="px-6 py-4 bg-white flex flex-col justify-between items-center rounded">
+        <img src={imgSrc} className="w-12 md:w-14 lg:w-16 py-2" />
+        <strong className="text-sm md:text-base lg:text-xl font-medium text-center tracking-tight leading-tight">
+          {name}
+        </strong>
 
         <span className="text-xl mt-2 text-green-800 font-bold">
           ₹ {cost.toLocaleString("en-IN")}
@@ -77,6 +82,7 @@ class HomePage extends Component {
   handleUndo = cost => {
     const { budget } = this.state;
     if (TOTAL_BUDGET >= budget) {
+      console.log(cost);
       this.setState({ budget: budget + cost });
     }
   };
@@ -86,17 +92,17 @@ class HomePage extends Component {
       <main className="flex w-full justify-center items-center px-6 my-20 lg:p-0 lg:my-0">
         <div className="container max-w-3xl">
           <header className="px-12 py-8 bg-white my-2">
-            <h1 className="font-bold text-3xl leading-tight text-center">
+            <h1 className="font-bold text-xl md:text-2xl lg:text-3xl leading-tight text-center">
               What all can be done with this budget?
             </h1>
           </header>
 
-          <section className="bg-green-500 px-12 py-4 text-white flex justify-center my-2">
-            <h3 className="font-bold text-2xl text-center">
+          <section className="bg-green-500 px-4 sticky top-0 py-4 text-white flex justify-center my-2">
+            <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-center">
               ₹ {this.state.budget.toLocaleString("en-IN")} left
             </h3>
           </section>
-          <section className="flex flex-1 flex-col lg:flex-row flex-wrap my-2">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Item
               name="A Meal/Thali"
               cost={50}
