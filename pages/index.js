@@ -42,7 +42,7 @@ class Item extends Component {
 
         <div className="flex flex-row my-4">
           <button
-            className="bg-red-500 px-4 py-2 text-white rounded text-xs mr-1"
+            className="bg-red-500 px-4 py-2 text-white rounded text-lg font-bold mr-1"
             onClick={this.handleUndo}
           >
             -
@@ -56,7 +56,7 @@ class Item extends Component {
           />
 
           <button
-            className="bg-green-700 px-4 py-2 text-white rounded text-xs ml-1"
+            className="bg-green-700 px-4 py-2 text-white rounded text-lg font-bold ml-1"
             onClick={this.handleBuild}
           >
             +
