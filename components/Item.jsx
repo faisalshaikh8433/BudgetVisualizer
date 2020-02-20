@@ -29,7 +29,7 @@ export default class Item extends Component {
     const { qty } = this.state;
     return (
       <div className="px-6 py-4 bg-white flex flex-col justify-between items-center">
-        <img src={imgSrc} className="w-12 md:w-14 lg:w-20 py-2 mb-2" />
+        <img src={imgSrc} className="w-16 md:w-20 lg:w-24 py-2 mb-2" />
 
         <strong className="text-sm md:text-base lg:text-xl font-medium text-center tracking-tight leading-tight">
           {name}
