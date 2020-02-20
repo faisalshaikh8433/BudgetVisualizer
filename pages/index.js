@@ -9,7 +9,7 @@ class HomePage extends Component {
   };
 
   handleBuild = cost => {
-    let amountLeft = TOTAL_BUDGET - cost;
+    let amountLeft = this.state.budget - cost;
     if (amountLeft >= 0) {
       this.setState({ budget: amountLeft });
     } else {
@@ -18,7 +18,7 @@ class HomePage extends Component {
   };
 
   handleUndo = cost => {
-    this.setState({ budget: TOTAL_BUDGET + cost });
+    this.setState({ budget: this.state.budget + cost });
   };
 
   render() {

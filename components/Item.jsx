@@ -16,11 +16,10 @@ export default class Item extends Component {
   handleUndo = () => {
     const { qty } = this.state;
     if (parseInt(qty) > 0) {
-      const newQty = parseInt(qty) - 1;
-      let totalCost = this.props.cost;
-      this.setState({ qty: newQty });
-      totalCost = this.props.cost * newQty;
+      const totalCost = this.props.cost * parseInt(qty);
       this.props.onUndo(totalCost);
+      const newQty = parseInt(qty) - 1;
+      this.setState({ qty: newQty });
     }
   };
 
