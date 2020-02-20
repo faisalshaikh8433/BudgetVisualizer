@@ -7,7 +7,7 @@ class Item extends Component {
 
   handleBuild = () => {
     const { qty } = this.state;
-    const newQty = qty + 1;
+    const newQty = parseInt(qty) + 1;
     this.setState({ qty: newQty });
     const totalCost = this.props.cost * newQty;
     this.props.onBuild(totalCost);
@@ -15,8 +15,8 @@ class Item extends Component {
 
   handleUndo = () => {
     const { qty } = this.state;
-    if (qty > 0) {
-      const newQty = qty - 1;
+    if (parseInt(qty) > 0) {
+      const newQty = parseInt(qty) - 1;
       let totalCost = this.props.cost;
       this.setState({ qty: newQty });
       if (newQty > 0) {
@@ -42,10 +42,10 @@ class Item extends Component {
 
         <div className="flex flex-row my-4">
           <button
-            className="bg-red-500 px-4 py-2 text-white rounded text-xs mr-1"
+            className="bg-red-500 px-4 py-2 text-white rounded text-lg font-bold mr-1"
             onClick={this.handleUndo}
           >
-            Undo
+            -
           </button>
 
           <input
@@ -56,10 +56,10 @@ class Item extends Component {
           />
 
           <button
-            className="bg-green-700 px-4 py-2 text-white rounded text-xs ml-1"
+            className="bg-green-700 px-4 py-2 text-white rounded text-lg font-bold ml-1"
             onClick={this.handleBuild}
           >
-            Build
+            +
           </button>
         </div>
       </div>
@@ -76,13 +76,17 @@ class HomePage extends Component {
 
   handleBuild = cost => {
     const { budget } = this.state;
-    this.setState({ budget: budget - cost });
+    let amountLeft = budget - cost;
+    if (amountLeft >= 0) {
+      this.setState({ budget: amountLeft });
+    } else {
+      this.setState({ budget: 0 });
+    }
   };
 
   handleUndo = cost => {
     const { budget } = this.state;
     if (TOTAL_BUDGET >= budget) {
-      console.log(cost);
       this.setState({ budget: budget + cost });
     }
   };
@@ -111,11 +115,25 @@ class HomePage extends Component {
               imgSrc="/food.svg"
             />
             <Item
+              name="Cooking Gas Cylinder"
+              cost={714}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/gas.svg"
+            />
+            <Item
               name="Free 120 units Electricity per house"
               cost={600}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/plug.svg"
+            />
+            <Item
+              name="Solar Electricity kit for each Household"
+              cost={150000}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/solar-panel.svg"
             />
             <Item
               name="Stop Farmer Suicide: Loan Waiver"
@@ -141,6 +159,13 @@ class HomePage extends Component {
             <Item
               name="Set up IITs"
               cost={12000000000}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/university.svg"
+            />
+            <Item
+              name="Set up IIMs"
+              cost={4000000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/university.svg"
@@ -172,6 +197,13 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/flat.svg"
+            />
+            <Item
+              name="By iPhone11"
+              cost={69900}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/touch-screen.svg"
             />
           </section>
         </div>
