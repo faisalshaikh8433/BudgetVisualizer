@@ -8,6 +8,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>BudgetVisualizer - What all can be done with this kind of money</title>
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet" />
       </Head>
       <Component {...pageProps} />
     </>

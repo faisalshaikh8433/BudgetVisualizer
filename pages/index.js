@@ -1,71 +1,5 @@
 import React, { Component } from "react";
-
-class Item extends Component {
-  state = {
-    qty: 0
-  };
-
-  handleBuild = () => {
-    const { qty } = this.state;
-    const newQty = parseInt(qty) + 1;
-    this.setState({ qty: newQty });
-    const totalCost = this.props.cost * newQty;
-    this.props.onBuild(totalCost);
-  };
-
-  handleUndo = () => {
-    const { qty } = this.state;
-    if (parseInt(qty) > 0) {
-      const newQty = parseInt(qty) - 1;
-      let totalCost = this.props.cost;
-      this.setState({ qty: newQty });
-      if (newQty > 0) {
-        totalCost = this.props.cost * newQty;
-      }
-      this.props.onUndo(totalCost);
-    }
-  };
-
-  render() {
-    const { name, cost, imgSrc } = this.props;
-    const { qty } = this.state;
-    return (
-      <div className="px-6 py-4 bg-white flex flex-col justify-between items-center rounded">
-        <img src={imgSrc} className="w-12 md:w-14 lg:w-16 py-2" />
-        <strong className="text-sm md:text-base lg:text-xl font-medium text-center tracking-tight leading-tight">
-          {name}
-        </strong>
-
-        <span className="text-xl mt-2 text-green-800 font-bold">
-          ₹ {cost.toLocaleString("en-IN")}
-        </span>
-
-        <div className="flex flex-row my-4">
-          <button
-            className="bg-red-500 px-4 py-2 text-white rounded text-lg font-bold mr-1"
-            onClick={this.handleUndo}
-          >
-            -
-          </button>
-
-          <input
-            type="number"
-            value={qty}
-            onChange={e => this.setState({ qty: e.target.value })}
-            className="w-16 border text-center mx-1"
-          />
-
-          <button
-            className="bg-green-700 px-4 py-2 text-white rounded text-lg font-bold ml-1"
-            onClick={this.handleBuild}
-          >
-            +
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+import Item from "../components/Item";
 
 const TOTAL_BUDGET = 75900000000000;
 
@@ -75,8 +9,7 @@ class HomePage extends Component {
   };
 
   handleBuild = cost => {
-    const { budget } = this.state;
-    let amountLeft = budget - cost;
+    let amountLeft = TOTAL_BUDGET - cost;
     if (amountLeft >= 0) {
       this.setState({ budget: amountLeft });
     } else {
@@ -85,19 +18,16 @@ class HomePage extends Component {
   };
 
   handleUndo = cost => {
-    const { budget } = this.state;
-    if (TOTAL_BUDGET >= budget) {
-      this.setState({ budget: budget + cost });
-    }
+    this.setState({ budget: TOTAL_BUDGET + cost });
   };
 
   render() {
     return (
-      <main className="flex w-full justify-center items-center px-6 my-20 lg:p-0 lg:my-0">
+      <main className="flex w-full justify-center items-center px-6 my-20 lg:p-0 lg:my-10">
         <div className="container max-w-3xl">
           <header className="px-12 py-8 bg-white my-2">
-            <h1 className="font-bold text-xl md:text-2xl lg:text-3xl leading-tight text-center">
-              What all can be done with this budget?
+            <h1 className="font-black text-xl md:text-2xl lg:text-3xl leading-tight text-center">
+              Spend the NPR + NRC + CAA Money
             </h1>
           </header>
 
@@ -106,7 +36,7 @@ class HomePage extends Component {
               ₹ {this.state.budget.toLocaleString("en-IN")} left
             </h3>
           </section>
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             <Item
               name="A Meal/Thali"
               cost={50}
