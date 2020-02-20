@@ -111,11 +111,25 @@ class HomePage extends Component {
               imgSrc="/food.svg"
             />
             <Item
+              name="Cooking Gas Cylinder"
+              cost={714}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/gas.svg"
+            />
+            <Item
               name="Free 120 units Electricity per house"
               cost={600}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/plug.svg"
+            />
+            <Item
+              name="Solar Electricity kit for each Household"
+              cost={150000}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/solar-panel.svg"
             />
             <Item
               name="Stop Farmer Suicide: Loan Waiver"
@@ -141,6 +155,13 @@ class HomePage extends Component {
             <Item
               name="Set up IITs"
               cost={12000000000}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/university.svg"
+            />
+            <Item
+              name="Set up IIMs"
+              cost={4000000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/university.svg"
@@ -172,6 +193,13 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/flat.svg"
+            />
+            <Item
+              name="By iPhone11"
+              cost={69900}
+              onBuild={this.handleBuild}
+              onUndo={this.handleUndo}
+              imgSrc="/touch-screen.svg"
             />
           </section>
         </div>
