@@ -27,7 +27,7 @@ class Item extends Component {
   };
 
   render() {
-    const { name, cost, imgSrc, buttonName } = this.props;
+    const { name, cost, imgSrc } = this.props;
     const { qty } = this.state;
     return (
       <div className="px-6 py-4 bg-white flex flex-col justify-between items-center rounded">
@@ -45,7 +45,7 @@ class Item extends Component {
             className="bg-red-500 px-4 py-2 text-white rounded text-xs mr-1"
             onClick={this.handleUndo}
           >
-            Undo
+            -
           </button>
 
           <input
@@ -59,7 +59,7 @@ class Item extends Component {
             className="bg-green-700 px-4 py-2 text-white rounded text-xs ml-1"
             onClick={this.handleBuild}
           >
-            {buttonName}
+            +
           </button>
         </div>
       </div>
@@ -113,7 +113,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/food.svg"
-              buttonName="Buy"
             />
             <Item
               name="Cooking Gas Cylinder"
@@ -121,7 +120,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/gas.svg"
-              buttonName="Buy"
             />
             <Item
               name="Free 120 units Electricity per house"
@@ -129,7 +127,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/plug.svg"
-              buttonName="Buy"
             />
             <Item
               name="Solar Electricity kit for each Household"
@@ -137,7 +134,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/solar-panel.svg"
-              buttonName="Buy"
             />
             <Item
               name="Stop Farmer Suicide: Loan Waiver"
@@ -145,7 +141,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/agriculture.svg"
-              buttonName="Buy"
             />
             <Item
               name="Build A School"
@@ -153,7 +148,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/school.svg"
-              buttonName="Build"
             />
             <Item
               name="Build a 100 bed Hospital"
@@ -161,7 +155,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/health.svg"
-              buttonName="Build"
             />
             <Item
               name="Set up IITs"
@@ -169,7 +162,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/university.svg"
-              buttonName="Build"
             />
             <Item
               name="Set up IIMs"
@@ -177,7 +169,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/university.svg"
-              buttonName="Build"
             />
             <Item
               name="A 2BHK flat in Delhi"
@@ -185,7 +176,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/house.svg"
-              buttonName="Build"
             />
             <Item
               name="A 2BHK flat in Mumbai"
@@ -193,7 +183,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/house.svg"
-              buttonName="Build"
             />
             <Item
               name="A Private Jet Aeroplane"
@@ -201,7 +190,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/plane.svg"
-              buttonName="Buy"
             />
             <Item
               name="Build a house like Mukesh Ambani's Antilia"
@@ -209,7 +197,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/flat.svg"
-              buttonName="Build"
             />
             <Item
               name="By iPhone11"
@@ -217,7 +204,6 @@ class HomePage extends Component {
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
               imgSrc="/touch-screen.svg"
-              buttonName="Buy"
             />
           </section>
         </div>
