@@ -42,6 +42,7 @@ class HomePage extends Component {
               cost={50}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/food.svg"
             />
             <Item
@@ -49,6 +50,7 @@ class HomePage extends Component {
               cost={714}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/gas.svg"
             />
             <Item
@@ -56,6 +58,7 @@ class HomePage extends Component {
               cost={600}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/plug.svg"
             />
             <Item
@@ -63,6 +66,7 @@ class HomePage extends Component {
               cost={150000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/solar-panel.svg"
             />
             <Item
@@ -70,6 +74,7 @@ class HomePage extends Component {
               cost={150000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/agriculture.svg"
             />
             <Item
@@ -77,6 +82,7 @@ class HomePage extends Component {
               cost={20000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/school.svg"
             />
             <Item
@@ -84,6 +90,7 @@ class HomePage extends Component {
               cost={40000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/health.svg"
             />
             <Item
@@ -91,6 +98,7 @@ class HomePage extends Component {
               cost={12000000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/university.svg"
             />
             <Item
@@ -98,6 +106,7 @@ class HomePage extends Component {
               cost={4000000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/university.svg"
             />
             <Item
@@ -105,6 +114,7 @@ class HomePage extends Component {
               cost={5000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/house.svg"
             />
             <Item
@@ -112,6 +122,7 @@ class HomePage extends Component {
               cost={10000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/house.svg"
             />
             <Item
@@ -119,6 +130,7 @@ class HomePage extends Component {
               cost={350000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/plane.svg"
             />
             <Item
@@ -126,6 +138,7 @@ class HomePage extends Component {
               cost={140000000000}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/flat.svg"
             />
             <Item
@@ -133,6 +146,7 @@ class HomePage extends Component {
               cost={69900}
               onBuild={this.handleBuild}
               onUndo={this.handleUndo}
+              currentBudget={this.state.budget}
               imgSrc="/touch-screen.svg"
             />
           </section>
