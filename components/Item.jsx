@@ -5,26 +5,46 @@ export default class Item extends Component {
     qty: 0
   };
 
-  handleBuild = () => {
+  handleIncrement = () => {
     const { qty } = this.state;
     const newQty = parseInt(qty) + 1;
     this.setState({ qty: newQty });
-    const totalCost = this.props.cost * newQty;
-    this.props.onBuild(totalCost);
+    this.props.onBuild(this.props.cost);
   };
 
-  handleUndo = () => {
+  handleDecrement = () => {
     const { qty } = this.state;
     if (parseInt(qty) > 0) {
-      const totalCost = this.props.cost * parseInt(qty);
-      this.props.onUndo(totalCost);
       const newQty = parseInt(qty) - 1;
       this.setState({ qty: newQty });
+      this.props.onUndo(this.props.cost);
     }
   };
 
+  handleInput = currentQty => {
+    let diffQty = currentQty - this.state.qty;
+
+    if (diffQty > 0) {
+      this.handleBuild(diffQty);
+    } else {
+      this.handleUndo(Math.abs(diffQty));
+    }
+
+    this.setState({ qty: currentQty });
+  };
+
+  handleBuild = qty => {
+    const totalCost = this.props.cost * qty;
+    this.props.onBuild(totalCost);
+  };
+
+  handleUndo = qty => {
+    const totalCost = this.props.cost * qty;
+    this.props.onUndo(totalCost);
+  };
+
   render() {
-    const { name, cost, imgSrc } = this.props;
+    const { name, cost, imgSrc, currentBudget } = this.props;
     const { qty } = this.state;
     return (
       <div className="px-6 py-4 bg-white flex flex-col justify-between items-center">
@@ -40,8 +60,13 @@ export default class Item extends Component {
 
         <div className="flex flex-row my-4 justify-center">
           <button
-            className="bg-red-500 px-4 py-2 text-white rounded text-lg font-bold mr-1"
-            onClick={this.handleUndo}
+            className={` px-4 py-2 text-white rounded text-lg font-bold mr-1 ${
+              this.state.qty === 0
+                ? "cursor-not-allowed bg-red-300"
+                : "bg-red-500"
+            }`}
+            onClick={this.handleDecrement}
+            disabled={this.state.qty === 0}
           >
             -
           </button>
@@ -49,13 +74,20 @@ export default class Item extends Component {
           <input
             type="number"
             value={qty}
-            onChange={e => this.setState({ qty: e.target.value })}
+            onChange={e => {
+              this.handleInput(e.target.value);
+            }}
             className="w-16 border text-center mx-1"
           />
 
           <button
-            className="bg-green-700 px-4 py-2 text-white rounded text-lg font-bold ml-1"
-            onClick={this.handleBuild}
+            className={` px-4 py-2 text-white rounded text-lg font-bold ml-1 ${
+              currentBudget - cost < cost
+                ? "cursor-not-allowed bg-green-400"
+                : "bg-green-700"
+            }`}
+            onClick={this.handleIncrement}
+            disabled={currentBudget - cost < cost}
           >
             +
           </button>
