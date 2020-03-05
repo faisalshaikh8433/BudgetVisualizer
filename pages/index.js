@@ -27,7 +27,7 @@ class HomePage extends Component {
         <div className="container max-w-3xl">
           <header className="px-12 py-8 bg-white my-2">
             <h1 className="font-black text-xl md:text-2xl lg:text-3xl leading-tight text-center">
-              Spend the NPR + NRC + CAA Money
+              Spend Muskesh Ambani's Money
             </h1>
           </header>
 
