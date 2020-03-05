@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Item from "../components/Item";
 
-const TOTAL_BUDGET = 75900000000000;
+const TOTAL_BUDGET = 3770318500000;
 
 class HomePage extends Component {
   state = {
@@ -94,22 +94,6 @@ class HomePage extends Component {
               imgSrc="/health.svg"
             />
             <Item
-              name="Set up IITs"
-              cost={12000000000}
-              onBuild={this.handleBuild}
-              onUndo={this.handleUndo}
-              currentBudget={this.state.budget}
-              imgSrc="/university.svg"
-            />
-            <Item
-              name="Set up IIMs"
-              cost={4000000000}
-              onBuild={this.handleBuild}
-              onUndo={this.handleUndo}
-              currentBudget={this.state.budget}
-              imgSrc="/university.svg"
-            />
-            <Item
               name="A 2BHK flat in Delhi"
               cost={5000000}
               onBuild={this.handleBuild}
@@ -132,14 +116,6 @@ class HomePage extends Component {
               onUndo={this.handleUndo}
               currentBudget={this.state.budget}
               imgSrc="/plane.svg"
-            />
-            <Item
-              name="Build a house like Mukesh Ambani's Antilia"
-              cost={140000000000}
-              onBuild={this.handleBuild}
-              onUndo={this.handleUndo}
-              currentBudget={this.state.budget}
-              imgSrc="/flat.svg"
             />
             <Item
               name="By iPhone11"
